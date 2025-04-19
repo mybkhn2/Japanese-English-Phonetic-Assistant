@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JP↔EN Translator Extension</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f7f8fa;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #1f8ef1;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+    header p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+      margin-top: 20px;
+    }
+    h2 {
+      color: #1f8ef1;
+      margin-top: 32px;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #1f8ef1;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .lang-switch {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+    }
+    .lang-switch button {
+      background: white;
+      border: 1px solid #1f8ef1;
+      color: #1f8ef1;
+      padding: 6px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+      margin: 40px 0 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="lang-switch">
+  <button onclick="switchLang('en')">English</button>
+  <button onclick="switchLang('ja')">日本語</button>
+</div>
+
+<header>
+  <h1>Japanese-English Phonetic Assistant</h1>
+  <p>Translate Japanese sentences into English with phonetics and pronunciation support!</p>
+</header>
+
+<section class="lang-section active" id="lang-en">
+  <h2>📌 What is this extension?</h2>
+  <p>This Chrome Extension helps you translate any Japanese sentence into English with accurate translation and phonetic (romaji) transcription using OpenAI's language capabilities.</p>
+  <p><strong>✨ Bonus:</strong> If you're learning English, the extension also provides the <strong>IPA (International Phonetic Alphabet)</strong> transcription of the English translation – helping you pronounce English words correctly.</p>
+
+  <h2>✨ Key Features</h2>
+  <ul>
+    <li>🔍 Right-click any Japanese sentence to instantly see the English translation.</li>
+    <li>🗣️ Includes romaji (Japanese phonetic transcription).</li>
+    <li>🔤 Includes English IPA phonetic transcription (optional).</li>
+    <li>⚡ Fast and seamless – works directly on the page you're viewing.</li>
+    <li>💬 Powered by OpenAI for natural, high-quality translations.</li>
+  </ul>
+
+  <h2>🎯 Who is it for?</h2>
+  <ul>
+    <li>🇯🇵 Japanese users learning English</li>
+    <li>🇬🇧 English speakers reading Japanese content</li>
+    <li>🎓 ESL (English as a Second Language) learners who want to improve pronunciation</li>
+    <li>📖 Language learners who want dual understanding</li>
+  </ul>
+
+  <h2>🚀 How to use</h2>
+  <ol>
+    <li>Install the extension from Chrome Web Store.</li>
+    <li>Visit any webpage with Japanese text.</li>
+    <li>Select (highlight) a Japanese sentence.</li>
+    <li>Right-click and choose “Translate with OpenAI”.</li>
+    <li>See English translation + romaji + (optionally) English phonetics!</li>
+  </ol>
+
+  <a href="#" class="button">→ Add to Chrome</a>
+</section>
+
+<section class="lang-section" id="lang-ja">
+  <h2>📌 この拡張機能とは？</h2>
+  <p>このChrome拡張機能は、Webページ上の日本語の文章を選択して右クリックするだけで、英語の翻訳とローマ字での日本語発音を表示してくれるツールです。</p>
+  <p><strong>✨さらに:</strong> 英語学習者のために、翻訳された英語の<em>発音記号（IPA）</em>も表示することが可能です。正しい発音の習得に役立ちます。</p>
+
+  <h2>✨ 主な機能</h2>
+  <ul>
+    <li>🔍 日本語の文を選択して右クリックすると、即座に英訳が表示されます。</li>
+    <li>🗣️ ローマ字（日本語の発音）を一緒に表示。</li>
+    <li>🔤 英語のIPA（発音記号）も表示可能。</li>
+    <li>⚡ Webページ上でそのまま動作、スムーズな使い心地。</li>
+    <li>💬 OpenAIの言語AIによる高品質な翻訳。</li>
+  </ul>
+
+  <h2>🎯 対象ユーザー</h2>
+  <ul>
+    <li>🇯🇵 英語を学ぶ日本人ユーザー</li>
+    <li>🇬🇧 日本語を学ぶ英語圏のユーザー</li>
+    <li>🎓 正しい英語の発音を知りたい英語学習者</li>
+    <li>📖 日英バイリンガルで読みたい全ての学習者</li>
+  </ul>
+
+  <h2>🚀 使い方</h2>
+  <ol>
+    <li>Chromeウェブストアから拡張機能をインストール</li>
+    <li>日本語の文章があるWebページにアクセス</li>
+    <li>翻訳したい文を選択（ハイライト）</li>
+    <li>右クリックして「OpenAIで翻訳」を選択</li>
+    <li>翻訳・ローマ字・英語発音（IPA）が表示されます！</li>
+  </ol>
+
+  <a href="#" class="button">→ Chromeに追加する</a>
+</section>
+
+<footer>
+  © 2025 – Empowering Japanese-English learners with instant understanding.
+</footer>
+
+<script>
+  function switchLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
